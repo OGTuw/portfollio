@@ -19,5 +19,6 @@ module.exports = {
   rules: {
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'vue/no-v-for-template-key': 'off',
   },
 }

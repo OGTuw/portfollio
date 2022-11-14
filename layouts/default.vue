@@ -7,13 +7,9 @@
 
       <v-spacer />
 
-      <v-btn>ホーム</v-btn>
-
-      <v-btn>会社情報</v-btn>
-
-      <v-btn>採用情報</v-btn>
-
-      <v-btn>お問い合せ</v-btn>
+      <template v-for="menu in state.menus" :key="menu.id.value">
+        <v-btn @click="handleClick(menu)">{{ menu.name.value }}</v-btn>
+      </template>
     </v-app-bar>
 
     <v-main>
@@ -24,4 +20,36 @@
   </v-app>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+  import { Menu } from '~/domains'
+
+  /*
+   * Composables
+   */
+  const { state, fetchMenu } = useMenu()
+  const route = useRoute()
+  const router = useRouter()
+
+  /*
+   * Meta
+   */
+  useMeta({
+    title: `Dora-corp - ${route.meta.title}`,
+  })
+
+  /*
+   * Created
+   */
+  try {
+    fetchMenu()
+  } catch (e: any) {
+    alert(e.message)
+  }
+
+  /*
+   * Methods
+   */
+  const handleClick = (menu: Menu) => {
+    router.push(`${menu.path.value}`)
+  }
+</script>
