@@ -1,8 +1,5 @@
 import { Entity } from '~/domains/base/entity'
-import { MenuName } from '~/domains/value-object/menu/menu-name'
-import { Path } from '~/domains/value-object/path'
-import { UniqueEntityId } from '~/domains/value-object/unique-entity-id'
-import { MenuId } from '~/domains/value-object/menu/menu-id'
+import { MenuId, MenuName, Path, UniqueEntityId } from '~/domains'
 
 interface IMenuProps {
   id: MenuId
