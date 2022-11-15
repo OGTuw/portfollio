@@ -7,7 +7,7 @@
 
       <v-spacer />
 
-      <template v-for="menu in state.menus" :key="menu.id.value">
+      <template v-for="menu in topMenus" :key="menu.id.value">
         <v-btn @click="handleClick(menu)">{{ menu.name.value }}</v-btn>
       </template>
     </v-app-bar>
@@ -17,6 +17,25 @@
         <slot />
       </v-container>
     </v-main>
+
+    <v-footer class="bg-grey-lighten-5">
+      <v-row justify="center" no-gutters>
+        <v-btn
+          v-for="menu in state.menus"
+          :key="menu.id.value"
+          variant="text"
+          class="mx-2"
+          rounded="xl"
+          @click="handleClick(menu)"
+        >
+          {{ menu.name.value }}
+        </v-btn>
+
+        <v-col class="text-center mt-4" cols="12">
+          ©︎ {{ new Date().getFullYear() }} - t10o
+        </v-col>
+      </v-row>
+    </v-footer>
   </v-app>
 </template>
 
@@ -45,6 +64,15 @@
   } catch (e: any) {
     alert(e.message)
   }
+
+  /*
+   * Computed
+   */
+  const topMenus = computed(() => {
+    return state.value.menus.filter((menu) => {
+      return menu.name.value !== 'Privacy'
+    })
+  })
 
   /*
    * Methods
