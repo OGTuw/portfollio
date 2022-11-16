@@ -3,6 +3,7 @@ import {
   BlogContent,
   BlogId,
   BlogTitle,
+  BlogUuid,
   Day,
   Emoji,
   Status,
@@ -18,6 +19,7 @@ interface IBlogProps {
   tags: Tag[]
   status: Status
   createdAt: Day
+  uuid: BlogUuid
 }
 
 export class Blog extends Entity<IBlogProps> {
@@ -49,6 +51,10 @@ export class Blog extends Entity<IBlogProps> {
     return this.props.createdAt
   }
 
+  get uuid(): BlogUuid {
+    return this.props.uuid
+  }
+
   private constructor(props: IBlogProps, id?: UniqueEntityId) {
     super(props, id)
   }
@@ -66,6 +72,7 @@ export class Blog extends Entity<IBlogProps> {
       tags: [Tag.create('')],
       status: Status.create(''),
       createdAt: Day.create(''),
+      uuid: BlogUuid.create(''),
     })
   }
 }

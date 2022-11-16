@@ -4,6 +4,7 @@ import {
   BlogContent,
   BlogId,
   BlogTitle,
+  BlogUuid,
   Day,
   Emoji,
   Status,
@@ -48,6 +49,7 @@ const fetchBlogs = async (state: Ref<BlogStore>) => {
       }),
       status: Status.create(blog.status),
       createdAt: Day.create(blog.created_at),
+      uuid: BlogUuid.create(blog.uuid),
     })
   })
 }
