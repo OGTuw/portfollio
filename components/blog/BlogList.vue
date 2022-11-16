@@ -3,6 +3,7 @@
     <BlogCard
       v-for="blog in state.blogs"
       :key="blog.id.value"
+      class="mb-4"
       :title="blog.title"
       :emoji="blog.emoji"
       :tags="blog.tags"
