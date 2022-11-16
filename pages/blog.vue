@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <BlogCard />
-  </div>
+  <BlogList />
 </template>
 
 <script setup lang="ts">

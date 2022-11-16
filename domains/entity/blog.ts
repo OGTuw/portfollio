@@ -3,6 +3,7 @@ import {
   BlogContent,
   BlogId,
   BlogTitle,
+  Day,
   Emoji,
   Status,
   Tag,
@@ -16,6 +17,7 @@ interface IBlogProps {
   content: BlogContent
   tags: Tag[]
   status: Status
+  createdAt: Day
 }
 
 export class Blog extends Entity<IBlogProps> {
@@ -43,6 +45,10 @@ export class Blog extends Entity<IBlogProps> {
     return this.props.status
   }
 
+  get createdAt(): Day {
+    return this.props.createdAt
+  }
+
   private constructor(props: IBlogProps, id?: UniqueEntityId) {
     super(props, id)
   }
@@ -59,6 +65,7 @@ export class Blog extends Entity<IBlogProps> {
       content: BlogContent.create(''),
       tags: [Tag.create('')],
       status: Status.create(''),
+      createdAt: Day.create(''),
     })
   }
 }
