@@ -39,6 +39,8 @@
   </v-app>
 </template>
 
+<script lang="ts"></script>
+
 <script setup lang="ts">
   import { Menu } from '~/domains'
 
@@ -52,7 +54,7 @@
   /*
    * Meta
    */
-  useMeta({
+  useHead({
     title: `Dora-corp - ${route.meta.title}`,
   })
 
