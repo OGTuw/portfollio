@@ -55,6 +55,14 @@ export class Blog extends Entity<IBlogProps> {
     return this.props.uuid
   }
 
+  get isEmpty(): boolean {
+    return this.props.id.value === 0
+  }
+
+  get isNotEmpty(): boolean {
+    return !this.isEmpty
+  }
+
   private constructor(props: IBlogProps, id?: UniqueEntityId) {
     super(props, id)
   }

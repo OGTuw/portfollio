@@ -12,24 +12,26 @@ export const useMenu = () => {
 
   return {
     state,
-    fetchMenu: () => fetchMenu(state),
+    fetchMenu: fetchMenu(state),
   }
 }
 
-const fetchMenu = async (state: Ref<MenuStore>) => {
-  const client = useSupabaseClient()
+const fetchMenu = (state: Ref<MenuStore>) => {
+  return async () => {
+    const client = useSupabaseClient()
 
-  const { data } = await client.from('menus').select('*').order('id')
+    const { data } = await client.from('menus').select('*').order('id')
 
-  if (data == null || data.length <= 0) {
-    throw new Error('メニューが取得できせん')
-  }
+    if (data == null || data.length <= 0) {
+      throw new Error('メニューが取得できせん')
+    }
 
-  state.value.menus = data.map((menu: any) => {
-    return Menu.create({
-      id: MenuId.create(menu.id),
-      name: MenuName.create(menu.name),
-      path: Path.create(menu.path),
+    state.value.menus = data.map((menu: any) => {
+      return Menu.create({
+        id: MenuId.create(menu.id),
+        name: MenuName.create(menu.name),
+        path: Path.create(menu.path),
+      })
     })
-  })
+  }
 }
