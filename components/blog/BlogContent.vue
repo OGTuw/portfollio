@@ -28,7 +28,7 @@
   /*
    * Composables
    */
-  const { state, setUuid, fetchBlog } = useBlog()
+  const { state, setUuid, fetchBlog, resetBlog } = useBlog()
   const { params } = useRoute()
 
   /*
@@ -41,4 +41,11 @@
   } catch (e: any) {
     alert(e.message)
   }
+
+  /*
+   * Destroyed
+   */
+  onUnmounted(() => {
+    resetBlog()
+  })
 </script>

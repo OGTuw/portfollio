@@ -29,6 +29,7 @@ export const useBlog = () => {
     setUuid: setUuid(state),
     fetchBlogs: fetchBlogs(state),
     fetchBlog: fetchBlog(state),
+    resetBlog: resetBlog(state),
   }
 }
 
@@ -95,4 +96,8 @@ const fetchBlog = (state: Ref<BlogStore>) => {
       uuid: BlogUuid.create(data.uuid),
     })
   }
+}
+
+const resetBlog = (state: Ref<BlogStore>) => {
+  return () => (state.value.blog = Blog.empty())
 }
