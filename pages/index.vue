@@ -1,9 +1,9 @@
 <template>
-  <div>Home</div>
+  <ProfileContent />
 </template>
 
 <script setup lang="ts">
   definePageMeta({
-    title: 'Home',
+    title: 'Profile',
   })
 </script>
