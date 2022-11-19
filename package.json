@@ -19,7 +19,7 @@
     "@typescript-eslint/parser": "^5.43.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vuetify/vite-plugin": "^1.0.0-alpha.11",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.7.0",
     "prettier": "^2.7.1",
